@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-
+    Login successful
   </div>
 </template>
 
