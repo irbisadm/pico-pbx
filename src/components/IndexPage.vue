@@ -1,7 +1,5 @@
-<template>
-  <div class="hello">
-    Login successful
-  </div>
+<template lang="pug">
+  .hello Login successful
 </template>
 
 <script>
