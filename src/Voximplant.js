@@ -84,7 +84,12 @@ export default class Voximplant {
   }
 
   async login(username, password) {
-    let request = {cmd: 'Logon', account_name: username, account_password: password};
+    let request = {cmd: 'Logon', account_password: password};
+    if(username.indexOf('@')===-1){
+      request.account_name = username;
+    }else{
+      request.account_email = username;
+    }
     //TODO: detect email and change logintype
     const loginResult = await this.requestApi(request);
     console.log(loginResult);

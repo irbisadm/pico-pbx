@@ -1,7 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import IndexPage from '@/components/IndexPage'
-import LoginPage from '@/components/LoginPage'
+import IndexPage from '@/pages/IndexPage'
+import LoginPage from '@/pages/LoginPage'
+import AboutPage from '@/pages/AboutPage'
+import UsersPage from '@/pages/UsersPage'
 import Voximplant from "../Voximplant";
 
 Vue.use(Router)
@@ -14,13 +16,28 @@ const router =  new Router({
       component: IndexPage
     },
     {
+      path: '/users/',
+      name: 'UsersPage',
+      component: UsersPage
+    },
+    {
       path: '/login',
       name: 'LoginPage',
       component: LoginPage
-    }
+    },
+    {
+      path: '/about',
+      name: 'AboutPage',
+      component: AboutPage
+    },
+
   ]
 })
 router.beforeEach((to,from,next)=>{
+  if(to.path==='/about') {
+    next();
+    return;
+  }
   const authResult = Voximplant.get().checkAuth();
   if(to.path==='/login'&&authResult){
     next('/');
