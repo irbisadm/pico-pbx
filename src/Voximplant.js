@@ -16,7 +16,7 @@ export default class Voximplant {
 
   /**
    * get Voximplant API instance
-   * @returns {*}
+   * @returns {Voximplant}
    */
   static get() {
     if (typeof Voximplant._instance === "undefined") {
@@ -97,7 +97,7 @@ export default class Voximplant {
       if(loginResult.data.error){
         throw new Error(loginResult.data.error.msg);
       }else{
-        this.authData.sessionId = loginResult.data.api_key;
+        this.authData.sessionId = loginResult.data.result;
         this.authData.accountId = loginResult.data.account_id;
         try {
           localStorage.setItem('accountId',this.authData.accountId);

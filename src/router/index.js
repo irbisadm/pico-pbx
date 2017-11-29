@@ -4,6 +4,8 @@ import IndexPage from '@/pages/IndexPage'
 import LoginPage from '@/pages/LoginPage'
 import AboutPage from '@/pages/AboutPage'
 import UsersPage from '@/pages/UsersPage'
+import HistoryPage from '@/pages/HistoryPage'
+import RoutingPage from '@/pages/RoutingPage'
 import Voximplant from "../Voximplant";
 
 Vue.use(Router)
@@ -19,6 +21,16 @@ const router =  new Router({
       path: '/users/',
       name: 'UsersPage',
       component: UsersPage
+    },
+    {
+      path: '/history/',
+      name: 'HistoryPage',
+      component: HistoryPage
+    },
+    {
+      path: '/routing/',
+      name: 'RoutingPage',
+      component: RoutingPage
     },
     {
       path: '/login',
