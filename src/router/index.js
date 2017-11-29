@@ -6,6 +6,8 @@ import AboutPage from '@/pages/AboutPage'
 import UsersPage from '@/pages/UsersPage'
 import HistoryPage from '@/pages/HistoryPage'
 import RoutingPage from '@/pages/RoutingPage'
+import UserDetailPage from '@/pages/UserDetailPage'
+import UserEditPage from '@/pages/UserEditPage'
 import Voximplant from "../Voximplant";
 
 Vue.use(Router)
@@ -21,6 +23,17 @@ const router =  new Router({
       path: '/users/',
       name: 'UsersPage',
       component: UsersPage
+    },
+    {
+      path: '/user/:user_id',
+      name: 'UserPage',
+      component: UserDetailPage,
+      children: [
+        {
+          path: 'edit',
+          component: UserEditPage
+        }
+      ]
     },
     {
       path: '/history/',

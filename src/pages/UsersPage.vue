@@ -31,8 +31,8 @@
         el-table-column(prop="mobile_phone", label="Mobile phone")
         el-table-column(fixed="right", label="Operations")
           template(slot-scope="scope")
-            el-button(type="text" size="small") Detail
-            el-button(type="text" size="small") Edit
+            el-button(type="text" size="small", @click="$router.push(`/user/${scope.row.user_id}/`)") Detail
+            el-button(type="text" size="small", @click="$router.push(`/user/${scope.row.user_id}/edit/`)") Edit
       .ppbx__paginaton
         el-pagination(@size-change='updatePageSize', @current-change='updatePage', :current-page.sync='page', :page-sizes='[10, 20, 50, 100]', :page-size='pageSize', layout='total, sizes, prev, pager, next, jumper', :total='total')
 </template>
