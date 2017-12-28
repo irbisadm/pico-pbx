@@ -20,11 +20,15 @@
   }
 </style>
 
-<script>
-  export default {
-    name: 'LeftMenu',
-    data (){
-      return {};
-    }
+<script lang="ts">
+  import Vue from "vue";
+  import Component from 'vue-class-component'
+
+  @Component({
+    props: {},
+    components: {}
+  })
+  export default class LeftMenu extends Vue {
+
   }
 </script>

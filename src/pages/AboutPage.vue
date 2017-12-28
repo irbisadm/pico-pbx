@@ -6,31 +6,19 @@
         p Pico-PBX - simple and fast PBX constructor based on Voximplant Cloud API for phone cals.
 </template>
 
-<script>
-import Voximplant from "../Voximplant";
-export default {
-  name: 'LoginPage',
-  data () {
-    return {
-      form:{
-        login:'',
-        password:''
-      },
-      errorMessage:''
-    }
-  },
-  methods:{
-    doLogin: function (e) {
-      Voximplant.get().login(this.form.login,this.form.password)
-        .then((response)=>{
-          this.errorMessage = '';
-          this.$router.push({path:'/'})
-        })
-        .catch((e)=>{
-          this.errorMessage = e.message;
-        })
-    }
+<script lang="ts">
+import LeftMenu from '@/components/LeftMenu.vue'
+import Vue from "vue";
+import Component from 'vue-class-component'
+
+@Component({
+  props: {},
+  components: {
+    LeftMenu
   }
+})
+export default class LoginPage extends Vue {
+
 }
 </script>
 

@@ -8,12 +8,16 @@
 </template>
 
 <script lang="ts">
-  import Vue, { VNode } from 'vue'
+  import Vue from 'vue'
+  import Component from 'vue-class-component'
 
-  const App = Vue.extend({
-    name: 'app'
-  });
-  export default App;
+  @Component({
+    props: {},
+    components: {}
+  })
+  export default class App extends Vue{
+
+  }
 </script>
 
 <style>

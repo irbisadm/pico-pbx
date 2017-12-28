@@ -6,14 +6,19 @@
       h1 IndexPage
 </template>
 
-<script>
-  import LeftMenu from '@/components/LeftMenu'
-  export default {
-    name: 'IndexPage',
-    components:{LeftMenu},
-    data() {
-      return {}
+<script  lang="ts">
+  import LeftMenu from '@/components/LeftMenu.vue'
+  import Vue from "vue";
+  import Component from 'vue-class-component'
+
+  @Component({
+    props: {},
+    components: {
+      LeftMenu
     }
+  })
+  export default class IndexPage extends Vue {
+
   }
 </script>
 

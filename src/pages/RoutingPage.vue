@@ -6,17 +6,19 @@
       h1 RoutingPage
 </template>
 
-<script>
-  import LeftMenu from '@/components/LeftMenu'
-  export default {
-    name: 'RoutingPage',
-    components:{LeftMenu},
-    data() {
-      return {}
-    },
-    methods:{
+<script lang="ts">
+  import LeftMenu from '@/components/LeftMenu.vue'
+  import Vue from "vue";
+  import Component from 'vue-class-component'
 
+  @Component({
+    props: {},
+    components: {
+      LeftMenu
     }
+  })
+  export default class RoutingPage extends Vue {
+
   }
 </script>
 

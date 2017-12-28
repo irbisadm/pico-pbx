@@ -14,30 +14,30 @@
             a.registration(href="https://voximplant.com/sign-up/",target="_blank") Registration
 </template>
 
-<script>
+<script lang="ts">
 import Voximplant from "../Voximplant";
-export default {
-  name: 'LoginPage',
-  data () {
-    return {
-      form:{
-        login:'',
-        password:''
-      },
-      errorMessage:''
-    }
-  },
-  methods:{
-    doLogin: function (e) {
-      Voximplant.get().login(this.form.login,this.form.password)
-        .then((response)=>{
-          this.errorMessage = '';
-          this.$router.push({path:'/'})
-        })
-        .catch((e)=>{
-          this.errorMessage = e.message;
-        })
-    }
+import Vue from "vue";
+import Component from 'vue-class-component'
+
+@Component({
+  props: {},
+  components: {}
+})
+export default class LoginPage extends Vue {
+  form = {
+    login:'',
+    password:''
+  };
+  errorMessage:string = '';
+  doLogin(e) {
+    Voximplant.get().login(this.form.login,this.form.password)
+      .then((response)=>{
+        this.errorMessage = '';
+        this.$router.push({path:'/'})
+      })
+      .catch((e)=>{
+        this.errorMessage = e.message;
+      })
   }
 }
 </script>

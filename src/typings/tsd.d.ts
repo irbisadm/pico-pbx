@@ -1,4 +1,1 @@
-declare module "*.vue" {
-  import Vue from 'vue'
-  export default Vue
-}
+/// <reference path="vue-shim.d.ts" />
