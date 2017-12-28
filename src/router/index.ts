@@ -1,13 +1,13 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import IndexPage from '@/pages/IndexPage'
-import LoginPage from '@/pages/LoginPage'
-import AboutPage from '@/pages/AboutPage'
-import UsersPage from '@/pages/UsersPage'
-import HistoryPage from '@/pages/HistoryPage'
-import RoutingPage from '@/pages/RoutingPage'
-import UserDetailPage from '@/pages/UserDetailPage'
-import UserEditPage from '@/pages/UserEditPage'
+import IndexPage from '@/pages/IndexPage.vue'
+import LoginPage from '@/pages/LoginPage.vue'
+import AboutPage from '@/pages/AboutPage.vue'
+import UsersPage from '@/pages/UsersPage.vue'
+import HistoryPage from '@/pages/HistoryPage.vue'
+import RoutingPage from '@/pages/RoutingPage.vue'
+import UserDetailPage from '@/pages/UserDetailPage.vue'
+import UserEditPage from '@/pages/UserEditPage.vue'
 import Voximplant from "../Voximplant";
 
 Vue.use(Router)

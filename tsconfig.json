@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "lib": ["dom", "es5", "es2015"],
+    "target": "es5",
+    "module": "es2015",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "noImplicitThis": true,
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    "typeRoots": ["./node_modules/@types"]
+  },
+  "files": [
+    "./src/typings/tsd.d.ts"
+  ],
+  "exclude": ["node_modules","dist"],
+  "include": [
+    "src/**/*"
+  ]
+}

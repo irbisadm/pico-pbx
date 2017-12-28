@@ -12,8 +12,9 @@ module.exports = {
     sourceMap: sourceMapEnabled,
     extract: isProduction
   }),
+  esModule: true,
   cssSourceMap: sourceMapEnabled,
-  cacheBusting: config.dev.cacheBusting, 
+  cacheBusting: config.dev.cacheBusting,
   transformToRequire: {
     video: 'src',
     source: 'src',

@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export default class Voximplant {
-  static _instance;
+  static _instance:Voximplant;
 
   /**
    * Please, use Voximplant.get() instead constructor.
@@ -18,7 +18,7 @@ export default class Voximplant {
    * get Voximplant API instance
    * @returns {Voximplant}
    */
-  static get() {
+  static get():Voximplant {
     if (typeof Voximplant._instance === "undefined") {
       Voximplant._instance = new Voximplant();
       Voximplant._instance.refreshLogin();
@@ -31,12 +31,12 @@ export default class Voximplant {
     sessionId: null,
   };
 
-  checkAuth() {
+  checkAuth():boolean {
     return !!(this.authData.accountId && this.authData.sessionId);
   }
 
 
-  refreshLogin() {
+  refreshLogin():void {
     try {
       this.authData.accountId = localStorage.getItem('accountId');
       this.authData.sessionId = localStorage.getItem('sessionId');
@@ -50,7 +50,7 @@ export default class Voximplant {
    * @param params
    * @returns {Promise<AxiosResponse | AxiosInterceptorManager<AxiosResponse>>}
    */
-  async requestApi(params) {
+  async requestApi(params:VoximplantRequest) {
     params.account_id = this.authData.accountId;
     params.session_id = this.authData.sessionId;
     try {
@@ -84,13 +84,12 @@ export default class Voximplant {
   }
 
   async login(username, password) {
-    let request = {cmd: 'Logon', account_password: password};
+    let request:VoximplantRequest = {cmd: 'Logon', account_password: password};
     if(username.indexOf('@')===-1){
       request.account_name = username;
     }else{
       request.account_email = username;
     }
-    //TODO: detect email and change logintype
     const loginResult = await this.requestApi(request);
     console.log(loginResult);
     if(loginResult&&loginResult.data){
@@ -110,4 +109,24 @@ export default class Voximplant {
       console.error(`[pPBX] Voximplant return unexpected result.`);
     }
   }
+}
+
+interface VoximplantRequest{
+  cmd:string,
+  account_password?:string,
+  account_name?:string,
+  account_email?:string,
+  account_id?:string,
+  session_id?:string,
+}
+
+interface PagedVoximplantRequest extends VoximplantRequest{
+  count?:number,
+  offset?:number,
+}
+
+export interface UsersRequest extends PagedVoximplantRequest{
+  user_active?:boolean,
+  user_name?: string,
+  user_display_name?: string
 }

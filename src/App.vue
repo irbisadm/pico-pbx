@@ -7,10 +7,13 @@
     router-view
 </template>
 
-<script>
-  export default {
+<script lang="ts">
+  import Vue, { VNode } from 'vue'
+
+  const App = Vue.extend({
     name: 'app'
-  }
+  });
+  export default App;
 </script>
 
 <style>
